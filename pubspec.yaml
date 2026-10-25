@@ -1,0 +1,16 @@
+name: catalogo_pontos_turisticos
+description: Catálogo de pontos turísticos da Baixada Santista.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/imagens/
