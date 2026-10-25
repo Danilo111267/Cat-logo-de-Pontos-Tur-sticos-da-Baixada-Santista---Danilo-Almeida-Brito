@@ -122,9 +122,41 @@ class _PrincipalState extends State<Principal> {
           _foto(ponto),
           const SizedBox(height: 8),
           Text(ponto.descricao),
+          const SizedBox(height: 8),
+          _marcacoes(ponto),
         ],
       ),
     );
+  }
+
+  Row _marcacoes(PontoTuristico ponto) {
+    return Row(
+      children: <Widget>[
+        Checkbox(
+          value: ponto.favorito,
+          onChanged: (valor) => _alterarFavorito(ponto, valor),
+        ),
+        const Expanded(child: Text('Favorito')),
+        const SizedBox(width: 12),
+        Checkbox(
+          value: ponto.visitado,
+          onChanged: (valor) => _alterarVisitado(ponto, valor),
+        ),
+        const Expanded(child: Text('Visitado')),
+      ],
+    );
+  }
+
+  void _alterarFavorito(PontoTuristico ponto, bool? valor) {
+    setState(() {
+      ponto.favorito = valor ?? false;
+    });
+  }
+
+  void _alterarVisitado(PontoTuristico ponto, bool? valor) {
+    setState(() {
+      ponto.visitado = valor ?? false;
+    });
   }
 
   Image _foto(PontoTuristico ponto) {
@@ -143,11 +175,15 @@ class PontoTuristico {
   final String cidade;
   final String imagem;
   final String descricao;
+  bool favorito;
+  bool visitado;
 
   PontoTuristico({
     required this.nome,
     required this.cidade,
     required this.imagem,
     required this.descricao,
+    this.favorito = false,
+    this.visitado = false,
   });
 }

@@ -30,6 +30,16 @@ flutter run -d chrome
 
 Para Android, conecte um dispositivo ou inicie um emulador e execute `flutter run`.
 
+## Verificar
+
+```bash
+flutter analyze
+flutter test
+flutter build web
+```
+
+Os testes verificam os sete locais, as imagens, as duas marcações independentes, a manutenção das marcações ao rolar a lista, a limpeza do estado ao recriar a tela e o layout em 320 pixels de largura.
+
 ## Fontes das informações e imagens
 
 | Local | Fonte |
